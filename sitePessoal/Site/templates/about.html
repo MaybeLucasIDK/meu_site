@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+
+</style>
+<div class="masonry">
+
+    <div class="bloco bloco-full-width">
+        
+        <h2>Hello,</h2>
+        <hr>
+        <div style="display: flex; justify-content: center;">
+        <img src="{% static 'Site/images/ghibli.png' %}" alt="Foto" 
+          style="width: 500px; height: auto;">
+        </div>
+
+        <p class="artigo-paragrafo">
+            Hi, I’m Lucas – a software developer passionate about clean code and smart solutions, <br>
+            I specialize in Python, Django, and web development,
+            and I'm currently expanding my skills in Data Science, Node.js, and full-stack technologies.
+        </p>
+        <p>
+            I created this website as a space to share my learning journey, personal projects, and thoughts on software development. Whether it's writing code,
+            solving bugs, or exploring the latest in tech,
+            I'm always looking for ways to grow and help others do the same.
+        </p>
+        <p>
+            When I'm not coding, you’ll probably find me exploring new tools,
+            contributing to open-source projects, 
+            or trying to learn another programming language.
+        </p>
+        <p>
+            This site includes some of my recent work, blog posts, and side projects. 
+            If you’re a fellow developer, tech enthusiast, or just curious, 
+            feel free to reach out or connect with me on GitHub or Linkedin.
+        </p>
+        <p>
+           <i>Thanks for stopping by!</i> 
+        </p>
+
+
+        </div>
+
+</div>
+
+{% endblock %}

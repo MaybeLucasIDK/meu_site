@@ -1,0 +1,56 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<h1>Conversando com {{ room.user_name }}</h1>
+<div style="width: 600px; border: 1px solid #ccc;">
+    <div id="chat-log" style="height: 400px; overflow-y: scroll; padding: 10px; background: #f9f9f9;">
+        {% for msg in messages %}
+            <div class="msg {% if msg.is_from_admin %}admin{% else %}user{% endif %}">
+                <div class="bubble">{{ msg.message }}</div>
+            </div>
+        {% endfor %}
+    </div>
+    <div style="padding: 10px; border-top: 1px solid #ccc;">
+        <input type="text" id="chat-message-input" placeholder="Digite sua resposta..." style="width: 80%;">
+        <button id="chat-message-submit">Responder</button>
+    </div>
+</div>
+
+<style>
+    .msg { margin-bottom: 10px; }
+    .msg.admin { text-align: left; }
+    .msg.user { text-align: right; }
+    .msg .bubble { display: inline-block; padding: 8px 12px; border-radius: 15px; max-width: 80%; }
+    .msg.user .bubble { background: #007bff; color: white; }
+    .msg.admin .bubble { background: #f1f1f1; color: black; }
+</style>
+
+<script>
+    const roomUuid = '{{ room.id }}';
+    const chatLog = document.getElementById('chat-log');
+    chatLog.scrollTop = chatLog.scrollHeight; // Rola para o final
+
+    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws';
+    const chatSocket = new WebSocket(
+      protocol + '//' + window.location.host + '/ws/chat/' + roomUuid + '/'
+    );
+
+    chatSocket.onmessage = function(e) {
+        const data = JSON.parse(e.data);
+        const messageType = data.is_from_admin ? 'admin' : 'user';
+        chatLog.innerHTML += `<div class="msg ${messageType}"><div class="bubble">${data.message}</div></div>`;
+        chatLog.scrollTop = chatLog.scrollHeight;
+    };
+
+    document.getElementById('chat-message-submit').onclick = function(e) {
+        const messageInputDom = document.getElementById('chat-message-input');
+        const message = messageInputDom.value;
+        if (message.trim() !== '') {
+            chatSocket.send(JSON.stringify({
+                'message': message,
+                'is_from_admin': true // AQUI ESTÁ A DIFERENÇA
+            }));
+            messageInputDom.value = '';
+        }
+    };
+</script>
+{% endblock %}

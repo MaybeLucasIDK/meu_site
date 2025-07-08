@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+
+</style>
+<div class="masonry">
+
+    <div class="bloco bloco-projetos">
+        
+        <h2>Personal Webpage</h2>
+        <hr>
+        <div style="display: flex; justify-content: center;">
+        <img src="{% static 'Site/images/website_print.png' %}" alt="Foto" 
+          style="width: 500px; height: auto; border-radius: 10px;">
+        </div>
+        <p style="text-align: center;">
+          <i class="fab fa-python" title="Django (Python)" style="color:#3776AB; font-size: 24px;"></i> &nbsp;
+          <i class="fas fa-comments" title="Django Channels (WebSocket)" style="color:#44A1C4; font-size: 24px;"></i> &nbsp;
+          <i class="fab fa-js" title="JavaScript" style="color:#F7DF1E; font-size: 24px;"></i> &nbsp;
+          <i class="fas fa-database" title="Redis" style="color:#D82C20; font-size: 24px;"></i> &nbsp;
+          <i class="fab fa-html5" title="HTML" style="color:#E34F26; font-size: 24px;"></i> &nbsp;
+          <i class="fab fa-css3-alt" title="CSS" style="color:#1572B6; font-size: 24px;"></i>
+        </p>
+
+        <p class="artigo-paragrafo">
+            My most recent project is this personal webpage you're currently viewing.
+            <br>
+            It's built with Django and serves as a portfolio to showcase my skills and projects. The design is primarily based on the Bentolio template from Figma, which you can check out <a href="https://www.figma.com/design/CBUAn97L7AAEUFQxvTuqzW/Bentolio-%7C-Portfolio-Design-Template--Community-?node-id=0-1&p=f&t=vQOiEQAxXQLEOrh9-0"
+            style="color: black;">here.</a>
+            
+        </p>
+        <p>
+            Although still under development, the technologies used so far include:
+
+            Django as the core framework,
+
+            Django Channels to handle real-time features like the contact-me chat,
+
+            JavaScript to manage interactivity in the chat,
+
+            Redis as a message broker, 
+
+            HTML and CSS for the structure and styling.
+        </p>
+        <p>
+           This project has been a great learning experience — 
+           it gave me many new insights and helped deepen my understanding of Django and web development.
+        </p>
+        <p>
+           Next steps: I plan to implement a blog post system to make content publishing easier.
+        </p>
+        <p>
+           
+        </p>
+
+
+        </div>
+      
+      <div class="bloco bloco-projetos">
+        
+        <h2>Meme Bot for discord</h2>
+        <hr>
+        <div style="display: flex; justify-content: center;">
+        <img src="{% static 'Site/images/discord_bot.png' %}" alt="Foto print sobre bot" 
+          style="width: 340px; height: auto; border-radius: 10px;">
+        </div>
+        <p style="text-align: center;">
+          <i class="fab fa-python" title="Django (Python)" style="color:#3776AB; font-size: 24px;"></i> &nbsp;
+          <i class="fas fa-code" title="API" font-size: 30px></i>
+        </p>
+
+        <p class="artigo-paragrafo">
+            While working on a project, I felt like our Discord server was missing something
+             — it was almost empty and too boring.
+        </p>
+        <p>
+            So, I decided to make a bot that would display something — news,
+            or even weather, if it was interesting. While looking for free APIs to use,
+            I came across one that retrieves the most liked photos from a programming subreddit.
+        </p>
+        <p>
+            I used Python to consume the API, using async for the first time.
+            The most difficult part was understanding how to configure it for Discord,
+            but after just two hours, the bot was up and already sending good memes.
+        </p>
+        <p>
+           It was a really nice and quick project. I got the chance to learn how to use async, consume APIs, and create good logs. 
+           It was also my first time deploying something on a platform like Discord — in this case, a bot.
+           Once you understand the basics, it's actually pretty fun, and you definitely need to try it!
+        </p>
+
+        </div>
+
+</div>
+
+{% endblock %}

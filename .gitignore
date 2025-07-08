@@ -1,0 +1,70 @@
+# Bytecode do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambientes virtuais
+venv/
+env/
+ENV/
+.venv/
+.virtualenv/
+
+# Configurações do VSCode ou PyCharm
+.vscode/
+.idea/
+
+# Arquivos temporários
+*.log
+*.pot
+*.pyc
+*.pyo
+*.swp
+*.tmp
+
+# Arquivos de banco de dados SQLite
+*.sqlite3
+
+# Arquivos de migração gerados
+*/migrations/__pycache__/
+*/migrations/*.py[cod]
+*/migrations/*.py~ 
+# (opcional) ignore todos os arquivos de migração:
+# */migrations/*.py
+
+# Media e arquivos gerados pelo usuário
+/media/
+staticfiles/
+static_root/
+media_root/
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de ambiente
+.env
+.env.*
+
+# Cobertura de testes
+htmlcov/
+.coverage
+coverage.xml
+.tox/
+.nox/
+
+# Arquivos do pytest
+.cache/
+.pytest_cache/
+
+# mypy, pylint, etc.
+.mypy_cache/
+.dmypy.json
+.pyre/
+
+*.env
+__pycache__/
+*.pyc
+/db.sqlite3
+.venv/
+.settings_prod.py
